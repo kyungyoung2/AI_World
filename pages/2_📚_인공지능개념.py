@@ -1,6 +1,5 @@
 import streamlit as st
 
-
 st.title("인공지능이란?")
 
 # 탭 생성 : 첫번째 탭의 이름은 Tab A 로, Tab B로 표시합니다.
