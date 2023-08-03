@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import datetime
-import FinanceDataReader as fdr
+
 
 st.title("데이터분석")
 
@@ -35,21 +34,7 @@ with tab2:
     # Finance Data Reader
     # https://github.com/financedata-org/FinanceDataReader
     st.subheader("조회 시작을 선택하세요.")
-    date = st.date_input(
-        "조회 시작일을 선택해 주세요",
-        datetime.datetime(2022, 1, 1)
-    )
-    st.subheader("알고 싶은 종목코드 입력하세요.")
-    code = st.text_input(
-        '종목코드예시: 삼성전자:005930',
-        value='',
-        placeholder='종목코드를 입력해 주세요'
-    )
 
-    if code and date:
-        df = fdr.DataReader(code, date)
-        data = df.sort_index(ascending=True).loc[:, 'Close']
-        st.line_chart(data)
 
 with tab3:
     # tab B를 누르면 표시될 내용

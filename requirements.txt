@@ -4,5 +4,5 @@ streamlit-chat
 pandas
 numpy
 matplotlib
-finance-datareader
+
 
