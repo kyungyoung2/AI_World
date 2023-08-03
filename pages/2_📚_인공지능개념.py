@@ -16,6 +16,7 @@ with tab1:
 with tab2:
     # tab B를 누르면 표시될 내용
     st.write('지도 학습')
+    st.markdown('지도학습은 정답과 레이블을 주고....')
 
 with tab3:
     # tab B를 누르면 표시될 내용
