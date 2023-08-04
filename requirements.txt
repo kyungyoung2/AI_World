@@ -4,6 +4,6 @@ streamlit-chat
 pandas
 numpy
 matplotlib
-cv2
 tensorflow
 streamlit-drawable-canvas
+opencv-python
