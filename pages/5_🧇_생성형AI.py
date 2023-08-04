@@ -9,8 +9,8 @@ st.title('생성형 인공지능')
 tab1, tab2, tab3 = st.tabs(['챗봇 AI(기본)','챗봇 AI(음성지원)', '이미지 생성 AI'])
 
 st.divider()
-#8월5일생성: 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
-openai.api_key = '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'
+
+openai.api_key = st.secrets["api_key"]
 
 with tab1 :
     def generate_response(prompt):
