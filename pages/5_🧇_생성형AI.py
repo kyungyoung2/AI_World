@@ -10,7 +10,7 @@ tab1, tab2, tab3 = st.tabs(['챗봇 AI(기본)','챗봇 AI(음성지원)', '이�
 
 st.divider()
 
-openai.api_key = st.secrets["api_key"]
+openai.api_key = "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"
 
 with tab1 :
     def generate_response(prompt):
