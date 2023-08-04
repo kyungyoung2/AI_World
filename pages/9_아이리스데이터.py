@@ -1,71 +1,88 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-
-'''
-
-df = pd.read_csv("iris.csv")
-
-st.subheader('1.붓꽃 데이터(상위 5개 데이터)')
-st.table(df.head())
-
-# 사이드바에 select box를 활용하여 종을 선택한 다음 그에 해당하는 행만 추출하여 데이터프레임을 만들고자합니다.
-st.sidebar.title('Iris Species🌸')
-
-# select_species 변수에 사용자가 선택한 값이 지정됩니다
-select_species = st.sidebar.selectbox(
-    '확인하고 싶은 종을 선택하세요',
-    ['Iris-setosa','Iris-versicolor','Iris-virginica']
-)
-
-st.subheader('2.선택한 종류만 보여주기')
-st.write("🌷왼쪽 슬라이드바에서 원하는 붓꽃 종류를 선택하세요.")
+import numpy as np
+import cv2
+from tensorflow.keras.models import load_model
+from streamlit_drawable_canvas import st_canvas
 
 
-# 원래 dataframe으로 부터 꽃의 종류가 선택한 종류들만 필터링 되어서 나오게 일시적인 dataframe을 생성합니다
-tmp_df = df[df['iris']== select_species]
-# 선택한 종의 맨 처음 5행을 보여줍니다
-st.table(tmp_df.head(10))
+st.title("데이터분석")
 
-# 여러개 선택할 수 있을 때는 multiselect를 이용하실 수 있습니다
-# return : list
-select_multi_species = st.sidebar.multiselect(
-    '확인하고자 하는 종을 선택해 주세요. 복수선택가능',
-    ['Iris-setosa','Iris-versicolor','Iris-virginica']
+# 탭 생성 : 첫번째 탭의 이름은 Tab A 로, Tab B로 표시합니다.
+tab1, tab2, tab3= st.tabs(['성적분석  ', '삼성전자 주식 조회  ', 'MNIST'])
 
-)
+with tab1:
+    # tab A 를 누르면 표시될 내용
+    st.write("")
+    st.write('''
+        ## 점수 데이터
+        3명의 학생의 국어, 영어, 수학 점수를 시각화하여 나타냅니다.''')
+    plt.rcParams['font.family'] = "NanumGothic"
+    plt.rcParams['axes.unicode_minus'] = False
 
-# 원래 dataframe으로 부터 꽃의 종류가 선택한 종류들만 필터링 되어서 나오게 일시적인 dataframe을 생성합니다
-tmp_df = df[df['iris'].isin(select_multi_species)]
-# 선택한 종들의 결과표를 나타냅니다.
-st.table(tmp_df)
-# 라디오에 선택한 내용을 radio select변수에 담습니다
-radio_select =st.sidebar.radio(
-    "열의 종류를 선택하세요.?",
-    ['sepal length', 'sepal width', 'petal length','petal width'],
-    horizontal=True
-    )
-# 선택한 컬럼의 값의 범위를 지정할 수 있는 slider를 만듭니다.
-slider_range = st.sidebar.slider(
-    "choose range of key column",
-     0.0, #시작 값
-     10.0, #끝 값
-    (2.5, 7.5) # 기본값, 앞 뒤로 2개 설정 /  하나만 하는 경우 value=2.5 이런 식으로 설정가능
-)
+    #DataFrame 생성
+    data = pd.DataFrame({
+        '이름' : ['이안','수현','지희'],
+        '국어' : [95,75,80],
+        '영어': [85, 90, 55],
+        '수학': [100, 80, 90]
+    })
+    st.dataframe(data, use_container_width=True)
+    fig, ax = plt.subplots()
+    ax.bar(data['이름'], data['국어'])
+    st.pyplot(fig)
 
-# 필터 적용버튼 생성
-start_button = st.sidebar.button(
-    "filter apply 📊 "#"버튼에 표시될 내용"
-)
 
-# button이 눌리는 경우 start_button의 값이 true로 바뀌게 된다.
-# 이를 이용해서 if문으로 버튼이 눌렸을 때를 구현
-if start_button:
-    tmp_df = df[df['iris'].isin(select_multi_species)]
-    #slider input으로 받은 값에 해당하는 값을 기준으로 데이터를 필터링합니다.
-    tmp_df= tmp_df[ (tmp_df[radio_select] >= slider_range[0]) & (tmp_df[radio_select] <= slider_range[1])]
-    st.table(tmp_df)
-    # 성공문구 + 풍선이 날리는 특수효과
-    st.sidebar.success("Filter Applied!")
-    st.balloons()
-'''
+with tab2:
+    # tab B를 누르면 표시될 내용
+    # Finance Data Reader
+    # https://github.com/financedata-org/FinanceDataReader
+    st.subheader("조회 시작을 선택하세요.")
+
+
+
+with tab3:
+    # tab B를 누르면 표시될 내용
+    st.write('비지도 학습')
+
+
+    @st.cache(allow_output_mutation=True)
+    def load():
+        return load_model('model.h5')
+
+
+    model = load()
+
+    st.write('# MNIST Recognizer')
+
+    CANVAS_SIZE = 192
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        canvas = st_canvas(
+            fill_color='#000000',
+            stroke_width=20,
+            stroke_color='#FFFFFF',
+            background_color='#000000',
+            width=CANVAS_SIZE,
+            height=CANVAS_SIZE,
+            drawing_mode='freedraw',
+            key='canvas'
+        )
+
+    if canvas.image_data is not None:
+        img = canvas.image_data.astype(np.uint8)
+        img = cv2.resize(img, dsize=(28, 28))
+        preview_img = cv2.resize(img, dsize=(CANVAS_SIZE, CANVAS_SIZE), interpolation=cv2.INTER_NEAREST)
+
+        col2.image(preview_img)
+
+        x = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        x = x.reshape((-1, 28, 28, 1))
+        y = model.predict(x).squeeze()
+
+        st.write('## Result: %d' % np.argmax(y))
+        st.bar_chart(y)
+
