@@ -6,7 +6,7 @@ import cv2
 from tensorflow.keras.models import load_model
 from streamlit_drawable_canvas import st_canvas
 
-
+'''
 st.title("데이터분석")
 
 # 탭 생성 : 첫번째 탭의 이름은 Tab A 로, Tab B로 표시합니다.
@@ -15,9 +15,7 @@ tab1, tab2, tab3= st.tabs(['성적분석  ', '삼성전자 주식 조회  ', 'MN
 with tab1:
     # tab A 를 누르면 표시될 내용
     st.write("")
-    st.write('''
-        ## 점수 데이터
-        3명의 학생의 국어, 영어, 수학 점수를 시각화하여 나타냅니다.''')
+    st.write('## 점수 데이터 3명의 학생의 국어, 영어, 수학 점수를 시각화하여 나타냅니다.')
     plt.rcParams['font.family'] = "NanumGothic"
     plt.rcParams['axes.unicode_minus'] = False
 
@@ -86,3 +84,30 @@ with tab3:
         st.write('## Result: %d' % np.argmax(y))
         st.bar_chart(y)
 
+'''
+
+st.write("붓꽃 데이터 시각화")
+import plotly.express as px
+
+df = px.data.gapminder()
+
+fig = px.scatter(
+    df.query("year==2007"),
+    x="gdpPercap",
+    y="lifeExp",
+    size="pop",
+    color="continent",
+    hover_name="country",
+    log_x=True,
+    size_max=60,
+)
+fig.show()
+
+tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
+with tab1:
+    # Use the Streamlit theme.
+    # This is the default. So you can also omit the theme argument.
+    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+with tab2:
+    # Use the native Plotly theme.
+    st.plotly_chart(fig, theme=None, use_container_width=True)

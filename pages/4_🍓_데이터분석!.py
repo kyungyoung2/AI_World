@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 st.title("붓꽃 데이터 분석하기")
 df = pd.read_csv("iris.csv")
 
-tab1, tab2, tab3 = st.tabs(['붓꽃 데이터란?', '붓꽃 데이터 보기','붓꽃 데이터 필터링'])
+tab1, tab2, tab3, tab4 = st.tabs(['붓꽃 데이터란?', '붓꽃 데이터 보기','붓꽃 데이터 필터링','붓꽃 데이터 시각화'])
 with tab1 :
     st.subheader("붓꽃(Iris) 데이터란?")
     st.markdown('''
@@ -77,3 +77,39 @@ with tab3 :
         # 성공문구 + 풍선이 날리는 특수효과
         st.success("Filter Applied!")
         st.balloons()
+with tab4 :
+    st.subheader('붓꽃 데이터 시각화하기')
+    st.subheader('1.세토사 품종의 sepal length 빈도수')
+    tmp_df2 = df.loc[df['iris']=='Iris-setosa']
+    st.table(tmp_df2.head())
+    fig, ax = plt.subplots()
+    ax.hist(x="sepal length",data=tmp_df2)
+    st.pyplot(fig)
+
+    st.subheader('2.버지컬러 품종의 sepal length 빈도수')
+    tmp_df3 = df.loc[df['iris'] == 'Iris-versicolor']
+    st.table(tmp_df3.head())
+    fig, ax = plt.subplots()
+    ax.hist(x="sepal length",data=tmp_df3)
+    st.pyplot(fig)
+
+    st.subheader('3.버지니카 품종의 sepal length 빈도수')
+    tmp_df4 = df.loc[df['iris'] == 'Iris-virginica']
+    st.table(tmp_df4.head())
+    fig, ax = plt.subplots()
+    ax.hist(x="sepal length", data=tmp_df4)
+    st.pyplot(fig)
+
+    st.subheader('4.세가지 품종의 sepal length의 차이')
+    fig, ax = plt.subplots()
+    ax.hist(x="sepal length", data=tmp_df2)
+    ax.hist(x="sepal length", data=tmp_df3)
+    ax.hist(x="sepal length", data=tmp_df4)
+    st.pyplot(fig)
+
+    code = '''
+            붓꽃 데이터 시각화를 통해 세 가지 품종에서 sepal length의 길이가 차이가 있음을 알 수 있다
+            세토사 품종의 sepal length가 짧은 편이고, 버지니카 품종의 sepal length가 다른 품종보다 조금 더 긴 것으로 나타났다.
+            데이터 시각화를 통해 데이터에 대한 분석을 좀 더 쉽게 할 수 있음을 단적으로 보여준다.
+            '''
+    st.code(code, language="python")
