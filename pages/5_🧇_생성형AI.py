@@ -14,6 +14,7 @@ openai.api_key = st.secrets["api_key"]
 
 
 with tab1 :
+    st.markdown("**아래 챗봇과 다양한 이야기들을 나눠 보세요. 한글 입력도 가능합니다.**")
     def generate_response(prompt):
         completions = openai.Completion.create (
             engine="text-davinci-003",
@@ -58,7 +59,7 @@ with tab1 :
 
 with tab2 :
     st.write("챗봇 AI(음성지원)")
-
+    st.markdown("**아래 챗봇을 궁금한 내용을 검색하면 그 결과를 나타내주고, 음성으로 변환하여 읽어주기도 합니다.**")
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},
     ]
@@ -103,4 +104,40 @@ with tab2 :
 
 with tab3 :
     st.write("이미지 생성")
+    st.markdown("**명령 프롬프트에 원하는 그림을 영어로 입력하고 원하는 사이즈를 선택한 후 Submit 버튼을 클릭하면 그림을 그려줍니다.**")
+
+    st.title("ChatGPT Plus DALL-E")
+
+    with st.form("form"):
+        user_input = st.text_input("Prompt")
+        size = st.selectbox("Size", ["1024x1024", "512x512", "256x256"])
+        submit = st.form_submit_button("Submit")
+
+    if submit and user_input:
+        gpt_prompt = [{
+            "role": "system",
+            "content": "Imagine the detail appeareance of the input. Response it shortly around 20 words"
+        }]
+
+        gpt_prompt.append({
+            "role": "user",
+            "content": user_input
+        })
+
+        with st.spinner("Waiting for ChatGPT..."):
+            gpt_response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=gpt_prompt
+            )
+
+        prompt = gpt_response["choices"][0]["message"]["content"]
+        st.write(prompt)
+
+        with st.spinner("Waiting for DALL-E..."):
+            dalle_response = openai.Image.create(
+                prompt=prompt,
+                size=size
+            )
+
+        st.image(dalle_response["data"][0]["url"])
 
