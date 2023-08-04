@@ -22,6 +22,7 @@ with tab2 :
     st.title('Iris Species🌸')
 
     # select_species 변수에 사용자가 선택한 값이 지정됩니다
+
     select_species = st.selectbox(
         '확인하고 싶은 종을 선택하세요',
         ['Iris-setosa','Iris-versicolor','Iris-virginica']
@@ -39,6 +40,9 @@ with tab2 :
 with tab3 :
     # 여러개 선택할 수 있을 때는 multiselect를 이용하실 수 있습니다
     # return : list
+    st.title("붓꽃 데이터 필터링")
+
+    st.subheader("1.품종 선택하기")
     select_multi_species = st.multiselect(
         '확인하고자 하는 종을 선택해 주세요. 복수선택가능',
         ['Iris-setosa','Iris-versicolor','Iris-virginica']
@@ -50,12 +54,17 @@ with tab3 :
     # 선택한 종들의 결과표를 나타냅니다.
     st.table(tmp_df)
     # 라디오에 선택한 내용을 radio select변수에 담습니다
+    st.write("")
+    st.subheader("2.열의 종류 선택하기")
+
     radio_select =st.radio(
-        "열의 종류를 선택하세요.?",
+        "열의 종류를 선택하세요.",
         ['sepal length', 'sepal width', 'petal length','petal width'],
         horizontal=True
         )
     # 선택한 컬럼의 값의 범위를 지정할 수 있는 slider를 만듭니다.
+    st.write("")
+    st.subheader("3.열의 값 슬라이드로 조정하기")
     slider_range = st.slider(
         "choose range of key column",
          0.0, #시작 값
@@ -65,7 +74,7 @@ with tab3 :
 
     # 필터 적용버튼 생성
     start_button = st.button(
-        "filter apply 📊 "#"버튼에 표시될 내용"
+        "필터링하기 📊 "#"버튼에 표시될 내용"
     )
 
     # button이 눌리는 경우 start_button의 값이 true로 바뀌게 된다.
@@ -78,6 +87,7 @@ with tab3 :
         # 성공문구 + 풍선이 날리는 특수효과
         st.success("Filter Applied!")
         st.balloons()
+
 with tab4 :
     st.subheader('붓꽃 데이터 시각화하기')
     st.subheader('1.세토사 품종의 sepal length 빈도수')
