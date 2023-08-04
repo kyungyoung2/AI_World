@@ -35,7 +35,7 @@ with tab2 :
     # 선택한 종의 맨 처음 5행을 보여줍니다
     st.table(tmp_df.head(10))
 
-with tab2 :
+with tab3 :
     # 여러개 선택할 수 있을 때는 multiselect를 이용하실 수 있습니다
     # return : list
     select_multi_species = st.multiselect(
