@@ -75,5 +75,5 @@ with tab3 :
         tmp_df= tmp_df[ (tmp_df[radio_select] >= slider_range[0]) & (tmp_df[radio_select] <= slider_range[1])]
         st.table(tmp_df)
         # 성공문구 + 풍선이 날리는 특수효과
-        st.sidebar.success("Filter Applied!")
+        st.success("Filter Applied!")
         st.balloons()
