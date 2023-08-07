@@ -16,7 +16,7 @@ openai.api_key = st.secrets["api_key"]
 with tab1 :
     st.markdown("""
     <p style = "background-color:#EAEAEA;">
-    OpenAI사의 ChatGPT를 시작으로 생성형 AI가 새롭게 떠오르고 있습니다. 
+    <u>OpenAI사의 ChatGPT를 시작으로 생성형 AI가 새롭게 떠오르고 있습니다.</u>
     생성형 인공지능이란, 이용자의 특정 요구에 따라 결과를 생성해내는 인공지능을 말합니다. 데이터 원본을 통한 학습으로
     소설, 시, 이미지, 비디오, 코딩, 미술 등 다양한 콘텐츠 생성에 이용됩니다. 한국에서는 2022년 Novel AI 등 그림 인공지능의 등장으로
     주목도가 높아졌으며, 해외에서는 미드저니나, 챗GPT등 여러 모델을 잇달아 공개하면서 화제의 중심이 되었습니다.<내용출처:위키피디아><br>
@@ -70,16 +70,15 @@ with tab2 :
     st.title("챗봇 AI(음성지원)")
     st.markdown("""
     <p style = "background-color:#EAEAEA;">
-    <font color = "red"><b>아래 챗봇을 궁금한 내용을 검색하면 그 결과를 나타내주고, 음성으로 변환하여 읽어주기도 합니다.</b></font>
+    <b><font color = "blue">아래</font> <font color="red">챗봇(GPT3)</font><font color="blue">에 궁금한 내용을 입력하면, 그 결과를 나타내주고,</font> <font color="red">음성으로 변환</font><font color="blue">하여 읽어주기도 합니다.</font></b>
     </p>""",  unsafe_allow_html=True)
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},
     ]
 
-    st.markdown("<h1 style='text-align: center; color: blue;'>Chat Bot Assistant(음성지원) </h1>", unsafe_allow_html=True)
+    #st.markdown("<h1 style='text-align: center; color: blue;'>Chat Bot Assistant(음성지원) </h1>", unsafe_allow_html=True)
 
-    st.markdown("<h3 style='text-align: center; color: blue;'>프롬프트를 입력하면 GPT-3 이 답을 해줍니다.</h3>",
-                unsafe_allow_html=True)
+    #st.markdown("<h3 style='text-align: center; color: blue;'>프롬프트를 입력하면 GPT-3 이 답을 해줍니다.</h3>", unsafe_allow_html=True)
 
 
     def text_to_speech(text):
@@ -119,7 +118,7 @@ with tab3 :
     st.title("ChatGPT Plus DALL-E")
     st.markdown("""
     <p style = "background-color:#EAEAEA;">
-    <font color = "red"><b>명령 프롬프트에 원하는 그림을 영어로 입력하고 원하는 사이즈를 선택한 후 Submit 버튼을 클릭하면 DALL.E가 그림을 그려줍니다.</b></font>
+    <b><font color = "blue">명령 프롬프트에 원하는 그림을 영어로 입력하고 원하는 사이즈를 선택한 후 Submit 버튼을 클릭하면</font> <font color="red">DALL.E</font><font color="blue">가 그림을 그려줍니다.</font></b>
     """, unsafe_allow_html=True)
 
 
