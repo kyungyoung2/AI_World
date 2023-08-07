@@ -4,7 +4,7 @@ from gtts import gTTS  # new import
 from io import BytesIO  # new import
 from streamlit_chat import message
 
-st.title('생성형 인공지능')
+st.title('😊생성형 인공지능')
 
 tab1, tab2, tab3 = st.tabs(['챗봇 AI(기본)','챗봇 AI(음성지원)', '이미지 생성 AI'])
 

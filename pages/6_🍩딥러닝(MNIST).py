@@ -4,12 +4,23 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import numpy as np
 
+st.write('# 😍MNIST Recognizer')
+st.markdown("""
+    <p style = "background-color:#EAEAEA;">
+    MNIST(Modified National Institute of Standards and Technology)는 손으로 쓴 숫자 데이터 셋으로, 60,000개의 학습 데이터와 10,000개의 테스트 데이터로 되어 있으며, 딥러닝 데이터 셋으로 사용됩니다.
+    아래 "MNIST Recognizer"는 여러분이 쓴 손글씨를 인식하는 인공지능 모델입니다.<br>
+    왼쪽 칸에 0~9까지의 숫자 중 하나를 그려 보세요. <br>
+    여러분이 쓴 숫자를 인식한 후 오른쪽 칸에 예측한 결과를 보여줍니다.<br>
+    잘 맞히는지 여러분도 테스트해 보세요!!!
+    </p>
+    """, unsafe_allow_html=True)
+
 @st.cache(allow_output_mutation=True)
 def load():
     return load_model('model.h5')
 model = load()
 
-st.write('# MNIST Recognizer')
+
 
 CANVAS_SIZE = 192
 

@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-st.title("붓꽃 데이터 분석하기")
+st.title("😊붓꽃 데이터 분석하기")
 df = pd.read_csv("iris.csv")
 
 tab1, tab2, tab3, tab4 = st.tabs(['붓꽃 데이터란?', '붓꽃 데이터 보기','붓꽃 데이터 필터링','붓꽃 데이터 시각화'])

@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("인공지능(Artificial Intelligence)이란?")
+st.title("😀인공지능(Artificial Intelligence)이란?")
 
 # 탭 생성 : 첫번째 탭의 이름은 Tab A 로, Tab B로 표시합니다.
 tab1, tab2, tab3 = st.tabs(['인공지능 역사','머신러닝', '딥러닝'])
