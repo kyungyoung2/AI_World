@@ -14,7 +14,16 @@ openai.api_key = st.secrets["api_key"]
 
 
 with tab1 :
-    st.markdown("**아래 챗봇과 다양한 이야기들을 나눠 보세요. 한글 입력도 가능합니다.**")
+    st.markdown("""
+    <p style = "background-color:#EAEAEA;">
+    OpenAI사의 ChatGPT를 시작으로 생성형 AI가 새롭게 떠오르고 있습니다. 
+    생성형 인공지능이란, 이용자의 특정 요구에 따라 결과를 생성해내는 인공지능을 말합니다. 데이터 원본을 통한 학습으로
+    소설, 시, 이미지, 비디오, 코딩, 미술 등 다양한 콘텐츠 생성에 이용됩니다. 한국에서는 2022년 Novel AI 등 그림 인공지능의 등장으로
+    주목도가 높아졌으며, 해외에서는 미드저니나, 챗GPT등 여러 모델을 잇달아 공개하면서 화제의 중심이 되었습니다.<내용출처:위키피디아><br>
+    <b><font color="red">우리도 다양한 API를 활용하여 챗봇 서비스뿐만 아니라, 이미지 생성 인공지능을 사용해보도록 합니다!!</font></b>
+    </p>
+    """, unsafe_allow_html=True)
+    st.markdown("**아래 챗봇과 다양한 이야기들을 나눠 보세요. :red[한글 입력]도 가능합니다.**")
     def generate_response(prompt):
         completions = openai.Completion.create (
             engine="text-davinci-003",
@@ -40,7 +49,7 @@ with tab1 :
 
 
     def get_text():
-        input_text = st.text_input("You: ","Hello, how are you?", key="input")
+        input_text = st.text_input("You: ","안녕!", key="input")#Hello, how are you?
         return input_text
 
 
@@ -58,15 +67,18 @@ with tab1 :
             message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
 
 with tab2 :
-    st.write("챗봇 AI(음성지원)")
-    st.markdown("**아래 챗봇을 궁금한 내용을 검색하면 그 결과를 나타내주고, 음성으로 변환하여 읽어주기도 합니다.**")
+    st.title("챗봇 AI(음성지원)")
+    st.markdown("""
+    <p style = "background-color:#EAEAEA;">
+    <font color = "red"><b>아래 챗봇을 궁금한 내용을 검색하면 그 결과를 나타내주고, 음성으로 변환하여 읽어주기도 합니다.</b></font>
+    </p>""",  unsafe_allow_html=True)
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},
     ]
 
     st.markdown("<h1 style='text-align: center; color: blue;'>Chat Bot Assistant(음성지원) </h1>", unsafe_allow_html=True)
 
-    st.markdown("<h3 style='text-align: center; color: blue;'>Enter a prompt and let GPT-3 generate a response</h3>",
+    st.markdown("<h3 style='text-align: center; color: blue;'>프롬프트를 입력하면 GPT-3 이 답을 해줍니다.</h3>",
                 unsafe_allow_html=True)
 
 
@@ -86,7 +98,7 @@ with tab2 :
         user_input = st.text_input("프롬프트 입력: ")
         if user_input:
             messages.append({"role": "user", "content": user_input})
-        searchbutton = st.button("검색")
+        searchbutton = st.button("답변 부탁해!")
         if searchbutton:
             response = openai.ChatCompletion.create(
                 model='gpt-3.5-turbo',
@@ -103,10 +115,14 @@ with tab2 :
     chatbot()
 
 with tab3 :
-    st.write("이미지 생성")
-    st.markdown("**명령 프롬프트에 원하는 그림을 영어로 입력하고 원하는 사이즈를 선택한 후 Submit 버튼을 클릭하면 그림을 그려줍니다.**")
-
+    #st.write("이미지 생성")
     st.title("ChatGPT Plus DALL-E")
+    st.markdown("""
+    <p style = "background-color:#EAEAEA;">
+    <font color = "red"><b>명령 프롬프트에 원하는 그림을 영어로 입력하고 원하는 사이즈를 선택한 후 Submit 버튼을 클릭하면 DALL.E가 그림을 그려줍니다.</b></font>
+    """, unsafe_allow_html=True)
+
+
 
     with st.form("form"):
         user_input = st.text_input("Prompt")
