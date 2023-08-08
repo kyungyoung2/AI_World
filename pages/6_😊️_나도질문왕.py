@@ -69,7 +69,9 @@ with tab2 :
     st.markdown("""
     <p style="background-color:#EAEAEA">
     ChatGPT를 활용하여 궁금한 내용들을 질문하고 친구들과 공유해봅니다.<br> 공유 과정은 아래와 같으니 자신의 질문 결과물을 패들렛에 올려 주세요!
-    <br><br>
+    <br>
+    <b><font color="red">패들렛 주소: <a href='https://padlet.com/shewill76/padlet-n9vkb730705llodp'>https://bit.ly/3DNCLCM</a></font></b>
+    <br>
      </p>
         """, unsafe_allow_html=True)
     st.markdown("""<b><font color="red">①</font></b> 챗GPT 사이트에 로그인합니다.(<a href="http://chat.openai.com">http://chat.openai.com</a>) 
@@ -82,7 +84,7 @@ with tab2 :
     st.markdown("<b><font color='red'>⑤</font></b> 나타난 화면에서 'copy link'를 클릭하면 나의 프롬프트 결과의 공유 링크가 생성됩니다.<b>(그림2)</b><br>", unsafe_allow_html=True)
     st.image("images/chat2.jpg")
     st.markdown("<h6 style='text-align: center; color: blue;'>(▲그림2)</h6>", unsafe_allow_html=True)
-    st.markdown("<b><font color='red'>⑥</font></b> 복사한 질문 링크는 아래 패들렛에 올려 친구들과 공유합니다.(<a href='https://padlet.com/shewill76/padlet-n9vkb730705llodp'>https://padlet.com/shewill76/padlet-n9vkb730705llodp</a>) <br>",unsafe_allow_html=True)
+    st.markdown("<b><font color='red'>⑥</font></b> 복사한 질문 링크는 아래 패들렛에 올려 친구들과 공유합니다.(<a href='https://padlet.com/shewill76/padlet-n9vkb730705llodp'>https://bit.ly/3DNCLCM</a>) <br>",unsafe_allow_html=True)
     st.image("images/chat3.jpg")
 
         

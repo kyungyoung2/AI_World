@@ -4,7 +4,7 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import numpy as np
 
-st.write('# 😍MNIST Recognizer')
+st.write('# 😊 MNIST Recognizer')
 st.markdown("""
     <p style = "background-color:#EAEAEA;">
     MNIST(Modified National Institute of Standards and Technology)는 손으로 쓴 숫자 데이터 셋으로, 60,000개의 학습 데이터와 10,000개의 테스트 데이터로 되어 있으며, 딥러닝 데이터 셋으로 사용됩니다.
@@ -15,6 +15,7 @@ st.markdown("""
     </p>
     """, unsafe_allow_html=True)
 
+st.spinner("Loading...")
 @st.cache(allow_output_mutation=True)
 def load():
     return load_model('model.h5')
