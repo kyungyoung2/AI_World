@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("😀인공지능(Artificial Intelligence)이란?")
+st.title("😀인공지능(Artificial Intelligence)")
 
 # 탭 생성 : 첫번째 탭의 이름은 Tab A 로, Tab B로 표시합니다.
 tab1, tab2, tab3 = st.tabs(['인공지능 역사','머신러닝', '딥러닝'])
@@ -80,4 +80,6 @@ with tab3:
                 " 인공 신경망은 **퍼셉트론**(인간의 뉴런에 해당)을 기본 단위로 사용하며, 이 퍼셉트론이 여러 개 연결되어 **심층 인공 신경망(DNN)**을 구성한다."
                 )
     st.video("https://youtu.be/kvAa-76IWHc")
+
+
 
