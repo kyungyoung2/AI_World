@@ -5,10 +5,10 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.subheader("World With AI")
+st.subheader("인공지능과 함께하는 세상")
 #st.sidebar.success("Select a page above.")
 st.write(" ")
-st.image('ai.jpg')
+st.image('images/ai.jpg')
 st.markdown('인공지능과 함께하는 세상에 오신 것을 환영합니다. 이 공간에서는 인공지능의 개념,'
             '인공지능 사례(생성형 인공지능)'
             '인공지능 윤리등에 대한 내용을 다룹니다.')

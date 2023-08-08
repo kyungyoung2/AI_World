@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.title("😊인공지능 윤리")
-tab1, tab2 = st.tabs(['인공지능 윤리','트롤리 딜레마'])
+tab1, tab2 = st.tabs(['인공지능 윤리','트롤리 딜레마 생각 나누기'])
 
 with tab1 :
 
@@ -51,3 +51,40 @@ with tab1 :
 
 with tab2 :
     st.subheader("1. 트롤리 딜레마란?")
+
+    st.markdown("""
+        <p style = "background-color:#EAEAEA;">
+        트롤리 딜레마(Trolley Dilemma)란 윤리학 분야의 사고실험으로, 다섯 사람을 구하기 위해 한 사람을 죽이는 것이 도덕적으로 허용 가능한지에 대한 질문이다.(내용 출처: 네이버 지식백과)<br>
+        인공지능 기술의 대표 사례인 '자율주행자동차'의 트롤리 딜레마에 대해 생각해보고 자신의 생각을 정리해보자!<br>
+        </p>
+        """, unsafe_allow_html=True)
+
+    st.subheader("2. 모럴 머신")
+    st.markdown("""
+                모럴 머신(Moral Machine)은 자율주행자동차의 윤리적 딜레마를 해결하고자 MIT의 라환 교수가 개발한 플랫폼이다.<br>
+                이 플랫폼은 다양한 딜레마를 설정하고, 각 딜레마에 대한 사람들의 의견을 수집한다. 수집한 데이터는 자율주행자동차의 개발에 반영된다고 한다.<br>
+                """, unsafe_allow_html=True)
+    st.image("images/moralmachine.jpg")
+    st.markdown("""
+                <h6 style="text-align:center">출처: 모럴 머신 사이트</h6>
+                """, unsafe_allow_html=True)
+
+    st.subheader("3. 트롤리 딜레마에 대한 생각 나누기")
+    st.markdown("""
+                <p style = "background-color:#EAEAEA;">
+                모럴 머신(Moral Machine) 사이트에 접속하여 자율주행자동차의 트롤리 딜레마 상황에서 여러분의 선택은 어떠한지 결정해보세요!<br>
+                결정된 내용을 아래 패들렛에 올려 친구들과 공유합니다..<br>
+                <b><font color="red">패들렛 주소: <a href='https://padlet.com/shewill76/padlet-7o3xuer9ngydtv41'>https://bit.ly/43VDs7r</a></font></b>
+                <br>                
+                </p>
+                """, unsafe_allow_html=True)
+
+    st.markdown("""<b><font color="red">①</font></b> 모럴 머신 사이트에 접속합니다.(<a href="https://www.moralmachine.net/">https://www.moralmachine.net/</a>) 
+        """, unsafe_allow_html=True)
+    st.markdown("<b><font color='red'>②</font></b> 상단 메뉴의 [judge]를 클릭합니다.", unsafe_allow_html=True)
+    st.markdown("<b><font color='red'>③</font></b> 나타나는 상황에 따라 선택합니다.(13가지 질문)", unsafe_allow_html=True)
+    st.image("images/moralmachine2.jpg")
+    st.markdown(
+        "<b><font color='red'>④</font></b> 여러분의 판단 성향은 어땠나요? 패들렛에 공유해봅니다.",
+        unsafe_allow_html=True)
+    st.image("images/trolley.jpg")
