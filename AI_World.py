@@ -5,7 +5,12 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.subheader("인공지능과 함께하는 세상")
+st.markdown("""
+            <h2 style="text-align:center">AI와 함께하는 세상</h2>
+            """, unsafe_allow_html=True)
+st.markdown("""
+            <h4 style="text-align:right">대상: 2학년</h4>
+            """, unsafe_allow_html=True)
 #st.sidebar.success("Select a page above.")
 st.write(" ")
 st.image('images/ai.jpg')

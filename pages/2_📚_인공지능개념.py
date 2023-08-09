@@ -45,7 +45,7 @@ with tab2:
     # tab B를 누르면 표시될 내용
     st.write("")
     st.subheader('1.인공지능&머신러닝&딥러닝')
-    st.image("ai_structure.jpg")
+    st.image("images/ai_structure.jpg")
     st.caption("▲인공지능, 머신러닝, 딥러닝의 관계도")
 
     st.subheader("2. 머신러닝(Machine Learning)")
