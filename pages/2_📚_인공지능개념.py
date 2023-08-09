@@ -16,7 +16,7 @@ with tab1:
     st.subheader('2. 인공지능의 역사')
     st.markdown(':red[**① 인공지능의 탄생**]: 인공지능이라는 용어는 1956년 다트머스 회의에서 존 매카시가 최초로 주장하였으며,'
                 '1950년대 전후로 컴퓨터가 등장하고 **앨런 튜링**이 생각하는 기계에 대한 아이디어를 발표하면서 인공지능 기술이 주목받기 시작하였다. ')
-    st.image('https://image.ahnlab.com/comm/info/1312260093411361.png')
+    st.image('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Alan_Turing_Aged_16.jpg/352px-Alan_Turing_Aged_16.jpg')
     st.markdown(':red[**② 전문가 시스템(Expert System)**]: 1970년대 사람들은 전문가의 지식을 컴퓨터에 그대로 담을 수 있다면 훌륭한 인공지능이 될 것으로 생각하였다. '
                 '그래서 지식 표현과 추론에 대한 연구 끝에 **전문가 시스템**을 구축하였다. '
                 '전문가 시스템에 인간의 모든 규칙을 넣기에 불가능했기에 **의료 분야 같은 일부 전문 영역에서만 주로 사용**되었다. '
